@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <a href="/tasks/new">Add New Task</a>
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <%= task.name %> - <%= task.completed ? 'Completed' : 'Not Completed' %>
+                <a href="/tasks/<%= task._id %>/edit">Edit</a>
+                <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
